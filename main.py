@@ -1,14 +1,6 @@
 #!/usr/bin/python
 
-# Main script for Adafruit Internet of Things Printer 2.  Monitors button
-# for taps and holds, performs periodic actions (Twitter polling by default)
-# and daily actions (Sudoku and weather by default).
-# Written by Adafruit Industries.  MIT license.
-#
-# MUST BE RUN AS ROOT (due to GPIO access)
-#
-# Required software includes Adafruit_Thermal, Python Imaging and PySerial
-# libraries. Other libraries used are part of stock Python install.
+# www.40in20out.com
 #
 # Resources:
 # http://www.adafruit.com/products/597 Mini Thermal Receipt Printer
