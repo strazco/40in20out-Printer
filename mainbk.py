@@ -83,11 +83,14 @@ GPIO.output(ledPin, GPIO.HIGH)
 # time.sleep(30)
 
 # Print greeting image
+printer.feed(1)
+printer.printImage(Image.open('40in20out_logo.bmp'), True)
+printer.feed(3)
 printer.print("40in20out")
 printer.feed(1)
 printer.print("Presented by...")
 printer.feed(1)
-printer.printImage(Image.open('40in20out_logo.bmp'), True)
+printer.printImage(Image.open('totemasset_logo.bmp'), True)
 printer.feed(3)
 GPIO.output(ledPin, GPIO.LOW)
 
