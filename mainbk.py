@@ -79,7 +79,14 @@ GPIO.output(ledPin, GPIO.HIGH)
 
 # Processor load is heavy at startup; wait a moment to avoid
 # stalling during greeting.
-time.sleep(30)
+# time.sleep(30)
+
+# Print greeting image
+printer.print("40in20out")
+printer.print("Presented by...")
+printer.printImage(Image.open('40in20out_logo.bmp'), True)
+printer.feed(3)
+GPIO.output(ledPin, GPIO.LOW)
 
 # Show IP address (if network is available)
 try:
@@ -97,12 +104,7 @@ except:
 	printer.feed(3)
 	exit(0)
 
-# Print greeting image
-printer.printImage(Image.open('40in20out_logo.bmp'), True)
-printer.print("Presented by...")
-printer.printImage(Image.open('40in20out_logo.bmp'), True)
-printer.feed(3)
-GPIO.output(ledPin, GPIO.LOW)
+
 
 # Poll initial button state and time
 prevButtonState = GPIO.input(buttonPin)
