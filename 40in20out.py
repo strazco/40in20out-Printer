@@ -11,7 +11,7 @@ from Adafruit_Thermal import *
 
 #40in20out subscription settings to authorize and set query
 cUser = 'andy@strazco.com'
-cPW = '8076'
+cPW = '8080'
 
 
 #!/usr/bin/python
