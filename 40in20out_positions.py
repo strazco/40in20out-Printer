@@ -28,7 +28,7 @@ order = (
 
 def main():
 
-    printer.printImage(Image.open('gfx/40in20out_positions.bmp'), True)
+    printer.printImage(Image.open('40in20out_positions.bmp'), True)
     printer.feed(1)
     printer.boldOn()
     printer.print("      " +time.strftime("%m/%d/%Y") + " " + time.strftime("%I:%M:%S"))
