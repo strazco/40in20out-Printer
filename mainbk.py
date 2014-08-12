@@ -39,7 +39,7 @@ def tap():
 # Called when button is held down.  Prints image, invokes shutdown process.
 def hold():
   GPIO.output(ledPin, GPIO.HIGH)
-  printer.printImage(Image.open('gfx/goodbye40in20out.png'), True)
+  printer.printImage(Image.open('goodbye40in20out.png'), True)
   printer.feed(3)
   subprocess.call("sync")
   subprocess.call(["shutdown", "-h", "now"])
@@ -98,9 +98,9 @@ except:
 	exit(0)
 
 # Print greeting image
-printer.printImage(Image.open('gfx/40in20out_logo.bmp'), True)
+printer.printImage(Image.open('40in20out_logo.bmp'), True)
 printer.print("Presented by...")
-printer.printImage(Image.open('gfx/40in20out_logo.bmp'), True)
+printer.printImage(Image.open('40in20out_logo.bmp'), True)
 printer.feed(3)
 GPIO.output(ledPin, GPIO.LOW)
 
