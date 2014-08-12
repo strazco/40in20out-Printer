@@ -60,7 +60,8 @@ def interval():
 # Invokes weather forecast and sudoku-gfx scripts.
 def daily():
   GPIO.output(ledPin, GPIO.HIGH)
-  subprocess.call(["python", "forecast.py"])
+  subprocess.call(["python", "40in20out_positions.py"])
+  #subprocess.call(["python", "forecast.py"])
   ## subprocess.call(["python", "sudoku-gfx.py"])
   GPIO.output(ledPin, GPIO.LOW)
 
