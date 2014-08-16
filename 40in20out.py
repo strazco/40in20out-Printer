@@ -10,11 +10,12 @@ from unidecode import unidecode
 from Adafruit_Thermal import *
 
 import boxid
+cBoxID = boxid.box()
 
 #40in20out subscription settings to authorize and set query
 # cUser = 'email'
 # cPW = 'pw'
-# cBoxID = 'AS73MONR'
+
 
 
 #!/usr/bin/python
