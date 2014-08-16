@@ -10,8 +10,9 @@ from unidecode import unidecode
 from Adafruit_Thermal import *
 
 #40in20out subscription settings to authorize and set query
-cUser = 'andy@strazco.com'
-cPW = '8080'
+# cUser = 'email'
+# cPW = 'pw'
+cBoxID = 'AS73MONR'
 
 
 #!/usr/bin/python
@@ -70,19 +71,22 @@ if len(sys.argv) > 1: lastId = sys.argv[1]
 else:                 lastId = '1'
 
 # If first start then fetch details
-url = "http://www.40in20out.com/tp.asp?action=LOGON&user=" + cUser + "&pw=" + cPW
+# url = "http://www.40in20out.com/tp.asp?action=LOGON&user=" + cUser + "&pw=" + cPW
+url = "http://www.40in20out.com/tp.asp?action=LOGON&boxid=" + cBoxID
 queryString = urllib.urlopen(url).read()
 # print(queryString)
   
-url2 = "http://www.40in20out.com/cs.asp?action=LOGON&user=" + cUser + "&pw=" + cPW
+# url2 = "http://www.40in20out.com/cs.asp?action=LOGON&user=" + cUser + "&pw=" + cPW
+url2 = "http://www.40in20out.com/cs.asp?action=LOGON&boxid=" + cBoxID
 consumer_key = urllib.urlopen(url2).read()
 # print (consumer_key)
   
-url3 = "http://www.40in20out.com/ck.asp?action=LOGON&user=" + cUser + "&pw=" + cPW
+# url3 = "http://www.40in20out.com/ck.asp?action=LOGON&user=" + cUser + "&pw=" + cPW
+url3 = "http://www.40in20out.com/ck.asp?action=LOGON&boxid=" + cBoxID
 consumer_secret = urllib.urlopen(url3).read()
 # print (consumer_secret)
 # text = html.get_text()
-#print(queryString)
+# print(queryString)
   
 # Initiate an HTTPS connection/request, uncompress and JSON-decode results
     
