@@ -9,10 +9,12 @@ from datetime import timedelta
 from unidecode import unidecode
 from Adafruit_Thermal import *
 
+import boxid
+
 #40in20out subscription settings to authorize and set query
 # cUser = 'email'
 # cPW = 'pw'
-cBoxID = 'AS73MONR'
+# cBoxID = 'AS73MONR'
 
 
 #!/usr/bin/python
