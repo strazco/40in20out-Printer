@@ -1,4 +1,3 @@
-def box( str ):
-   "AS73MONR"
-   print str;
-   return;
+def box():
+   #
+   return "AS73MONR";
