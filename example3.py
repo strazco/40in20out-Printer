@@ -7,10 +7,10 @@ xmldoc = minidom.parseString(xml_str)
 
 obs_values = xmldoc.getElementsByTagName('base:OBS_VALUE')
 # prints the first base:OBS_VALUE it finds
-print obs_values[0].firstChild.nodeValue
+# print obs_values[0].firstChild.nodeValue
 
 # prints the second base:OBS_VALUE it finds
-print obs_values[1].firstChild.nodeValue
+# print obs_values[1].firstChild.nodeValue
 
 # prints all base:OBS_VALUE in the XML doc
 for obs_val in obs_values:
