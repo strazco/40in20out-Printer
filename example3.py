@@ -6,7 +6,7 @@ url_str = 'http://40in20out.com/subscribers/messages2.xml'
 xml_str = urllib.urlopen(url_str).read()
 xmldoc = minidom.parseString(xml_str)
 
-action = xmldoc.getElementsByTagName('action')
+action = xmldoc.getElementsByTagName('VFPData')
 # prints the first base:OBS_VALUE it finds
 print action[0].firstChild.nodeValue
 
