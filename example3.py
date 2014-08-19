@@ -14,5 +14,5 @@ obs_values = xmldoc.getElementsByTagName('base:OBS_VALUE')
 
 # prints all base:OBS_VALUE in the XML doc
 for obs_val in obs_values:
-    if obs_val <> "0.09":
+    if obs_val <> 0.09:
       print obs_val.firstChild.nodeValue
