@@ -2,7 +2,7 @@ from xml.dom import minidom
 import urllib
 
 url_str = 'http://www.newyorkfed.org/markets/omo/dmm/fftoXML.cfm?type=daily'
-xml_str = urllib.urlopen(xml_str).read()
+xml_str = urllib.urlopen(url_str).read()
 xmldoc = minidom.parseString(xml_str)
 
 obs_values = xmldoc.getElementsByTagName('base:OBS_VALUE')
