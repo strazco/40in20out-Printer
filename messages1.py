@@ -48,10 +48,15 @@ while True:
         if i in printed_messages: pass
         #if the message (i) hasn't allready been printed, print the message
         else:
-            print("Message #:", i[0])
-            print("Message Timestamp:", i[1])
-            print("Message Type:", i[2])
-            print("Message Action:", i[3])
+            #print("Message #:", i[0])
+            #print("Message Timestamp:", i[1])
+            #print("Message Type:", i[2])
+            #print("Message Action:", i[3])
+            #print('')
+            #print("Message #:", i[0])
+            print(i[1])
+            #print("Message Type:", i[2])
+            print(i[3])
             print('')
             #now that the message has been printed, add it to printed_messages list
             printed_messages.append(i)
