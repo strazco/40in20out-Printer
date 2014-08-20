@@ -75,11 +75,11 @@ while True:
             print(i[3])
             print('')
             
-            printer.doubleWidthOn()
+            #printer.doubleWidthOn()
             #printer.inverseOn()
             printer.print(i[1])
             printer.print(i[3])
-            printer.doubleWidthOff()
+            #printer.doubleWidthOff()
             printer.feed(3)
             
             #now that the message has been printed, add it to printed_messages list
