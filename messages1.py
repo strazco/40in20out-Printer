@@ -89,6 +89,19 @@ while True:
                 printer.print(i[3])
                 #printer.doubleWidthOff()
                 printer.feed(3)
+
+            if i[2] == "2":
+                #printer.doubleWidthOn()
+                #printer.inverseOn()
+                printer.printImage(Image.open('40in20out_2min.bmp'), True)
+                printer.feed(1)
+                printer.boldOn()
+                printer.print(i[1])
+                printer.boldOff()
+                printer.feed(1)
+                printer.print(i[3])
+                #printer.doubleWidthOff()
+                printer.feed(3)
             
             #now that the message has been printed, add it to printed_messages list
             printed_messages.append(i)
