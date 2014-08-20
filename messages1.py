@@ -73,6 +73,7 @@ while True:
             #print("Message #:", i[0])
             print(i[1])
             #print("Message Type:", i[2])
+            print(i[2])
             print(i[3])
             print('')
             
