@@ -40,8 +40,8 @@ while True:
     #requires sorting
     found_messages.sort()
     printed_messages.sort()    
-    if found_messages == printed_messages:
-        #print('No New Messages')
+    #if found_messages == printed_messages:
+    #    print('No New Messages')
     #enumerate through found_messages
     for i in found_messages:
         #if the message (i) has allready been printed, pass
