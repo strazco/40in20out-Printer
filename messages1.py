@@ -1,7 +1,7 @@
 #import necessary libraries
 import urllib
 from urllib import *
-from urllib import urllib.request
+import urllib.request
 import time
 #create a list of messages that have been printed
 printed_messages = []
