@@ -1,14 +1,14 @@
 #import necessary libraries
 import urllib
 from urllib import *
-import urllib.request
+#import urllib.request
 import time
 #create a list of messages that have been printed
 printed_messages = []
 #create a function to find the messages
 def get_messages():
     #open 40in20out
-    f = urllib.request.urlopen('http://www.40in20out.com/subscribers/messages2.xml')
+    f = urllib.urlopen('http://www.40in20out.com/subscribers/messages2.xml')
     #get text from /sub/messages2
     text = str(f.read().decode('utf-8'))
     #create a list for all the messages on the site
