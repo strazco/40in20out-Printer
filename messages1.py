@@ -14,6 +14,11 @@ import urllib
 from urllib import *
 #import urllib.request
 import time
+
+
+printer   = Adafruit_Thermal("/dev/ttyAMA0", 19200, timeout=5)
+
+
 #create a list of messages that have been printed
 printed_messages = []
 #create a function to find the messages
