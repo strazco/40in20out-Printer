@@ -75,6 +75,7 @@ while True:
             print(i[3])
             print('')
             
+            
             #printer.doubleWidthOn()
             #printer.inverseOn()
             printer.printImage(Image.open('40in20out_trade.bmp'), True)
