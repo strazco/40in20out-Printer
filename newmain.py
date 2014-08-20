@@ -175,6 +175,105 @@ while(True):
 
 
 
+    found_messages = get_messages()
+    #if all the found_messages have been printed, print no new messages
+    #requires sorting
+    found_messages.sort()
+    printed_messages.sort()    
+    #if found_messages == printed_messages:
+    #    print('No New Messages')
+    #enumerate through found_messages
+    for i in found_messages:
+        #if the message (i) has allready been printed, pass
+        if i in printed_messages: pass
+        #if the message (i) hasn't allready been printed, print the message
+        else:
+            #print("Message #:", i[0])
+            #print("Message Timestamp:", i[1])
+            #print("Message Type:", i[2])
+            #print("Message Action:", i[3])
+            #print('')
+            #print("Message #:", i[0])
+            print(i[1])
+            #print("Message Type:", i[2])
+            print(i[2])
+            print(i[3])
+            print('')
+            
+            if i[2] == "T":
+                #printer.doubleWidthOn()
+                #printer.inverseOn()
+                printer.printImage(Image.open('40in20out_trade.bmp'), True)
+                printer.feed(1)
+                printer.inverseOn()
+                printer.print ('{:<32}'.format(i[1]))
+                #printer.print(i[1])
+                printer.inverseOff()
+                printer.feed(1)
+                printer.boldOn()
+                printer.print(i[3])
+                printer.boldOff()
+                #printer.doubleWidthOff()
+                printer.feed(3)
+
+            if i[2] == "2":
+                #printer.doubleWidthOn()
+                #printer.inverseOn()
+                printer.printImage(Image.open('40in20out_2min.bmp'), True)
+                printer.feed(1)
+                printer.inverseOn()
+                printer.print ('{:<32}'.format(i[1]))                
+                #printer.print(i[1])
+                printer.inverseOff()
+                printer.feed(1)
+                printer.print(i[3])
+                #printer.doubleWidthOff()
+                printer.feed(3)
+                
+            if i[2] == "A":
+                #printer.doubleWidthOn()
+                #printer.inverseOn()
+                printer.printImage(Image.open('40in20out_alert.bmp'), True)
+                printer.feed(1)
+                printer.inverseOn()
+                printer.print ('{:<32}'.format('         *** ALERT ***'))
+                printer.inverseOff()
+                printer.feed(1)
+                printer.boldOn()
+                printer.print(i[1])
+                printer.boldOff()
+                printer.feed(1)
+                printer.print(i[3])
+                printer.feed(1)
+                printer.inverseOn()
+                printer.print ('{:<32}'.format('         *** ALERT ***'))
+                #printer.print('        *** ALERT ***         ')
+                printer.inverseOff()
+                printer.feed(1)
+                printer.feed(3)
+                
+            if i[2] == "I":
+                #printer.doubleWidthOn()
+                #printer.inverseOn()
+                printer.printImage(Image.open('40in20out_info.bmp'), True)
+                printer.feed(1)
+                printer.inverseOn()
+                printer.print ('{:<32}'.format(i[1]))
+                #printer.print(i[1])
+                printer.inverseOff()
+                printer.feed(1)
+                printer.boldOn()
+                printer.print(i[3])
+                printer.boldOff()
+                #printer.doubleWidthOff()
+                printer.feed(3)
+                
+            #now that the message has been printed, add it to printed_messages list
+            printed_messages.append(i)
+    #wait 10 seconds before checking for more messages
+    time.sleep(1)
+
+
   # Poll current button state and time
   buttonState = GPIO.input(buttonPin)
   t           = time.time()
