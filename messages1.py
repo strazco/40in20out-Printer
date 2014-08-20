@@ -32,8 +32,8 @@ def get_messages():
 #while True will run forever
 while True:
     #Tell 'em we're checking messages!
-    print('Checking Messages...')
-    print('')
+    #print('Checking Messages...')
+    #print('')
     #call get_messages() and save messages as found_messages
     found_messages = get_messages()
     #if all the found_messages have been printed, print no new messages
@@ -41,7 +41,7 @@ while True:
     found_messages.sort()
     printed_messages.sort()    
     if found_messages == printed_messages:
-        print('No New Messages')
+        #print('No New Messages')
     #enumerate through found_messages
     for i in found_messages:
         #if the message (i) has allready been printed, pass
