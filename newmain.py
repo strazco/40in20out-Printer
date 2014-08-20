@@ -266,8 +266,8 @@ while(True):
            #printer.doubleWidthOff()
            printer.feed(3)
                 
- #now that the message has been printed, add it to printed_messages list
- printed_messages.append(i)
+        #now that the message has been printed, add it to printed_messages list
+        printed_messages.append(i)
 
 
   # Poll current button state and time
