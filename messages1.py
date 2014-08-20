@@ -77,7 +77,12 @@ while True:
             
             #printer.doubleWidthOn()
             #printer.inverseOn()
+            printer.printImage(Image.open('40in20out_trade.bmp'), True)
+            printer.feed(1)
+            printer.boldOn()
             printer.print(i[1])
+            printer.boldOff()
+            printer.feed(1)
             printer.print(i[3])
             #printer.doubleWidthOff()
             printer.feed(3)
