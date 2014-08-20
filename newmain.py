@@ -173,8 +173,6 @@ holdEnable      = False
 # Main loop
 while(True):
 
-
-
  found_messages = get_messages()
  #if all the found_messages have been printed, print no new messages
  #requires sorting
@@ -268,8 +266,8 @@ while(True):
            #printer.doubleWidthOff()
            printer.feed(3)
                 
-        #now that the message has been printed, add it to printed_messages list
-        printed_messages.append(i)
+ #now that the message has been printed, add it to printed_messages list
+ printed_messages.append(i)
 
 
   # Poll current button state and time
