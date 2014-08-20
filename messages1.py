@@ -1,6 +1,7 @@
 from __future__ import print_function
 import base64, HTMLParser, httplib, json, sys, urllib, zlib
-import urllib
+import urllib, csv
+import subprocess, time, Image, socket
 
 import datetime
 from datetime import datetime
