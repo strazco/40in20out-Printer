@@ -69,6 +69,14 @@ while True:
             #print("Message Type:", i[2])
             print(i[3])
             print('')
+            
+            printer.doubleWidthOn()
+            #printer.inverseOn()
+            printer.print(i[1])
+            printer.print(i[3])
+            printer.doubleWidthOff()
+            printer.feed(3)
+            
             #now that the message has been printed, add it to printed_messages list
             printed_messages.append(i)
     #wait 10 seconds before checking for more messages
