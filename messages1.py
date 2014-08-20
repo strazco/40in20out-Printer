@@ -35,7 +35,9 @@ def get_messages():
         #parse the messages to find message_number, message_timestamp, message_type, and message_action
         message_number = text[text.find('messages msgnum="')+17:text.find('messages msgnum="')+23]
         text = text[text.find('messages msgnum="'):]
-        message_timestamp = text[text.find('timestamp="')+11:text.find('timestamp="')+30]
+        #message_timestamp = text[text.find('timestamp="')+11:text.find('timestamp="')+30]
+        init_timestamp = text[text.find('timestamp="')+11:text.find('timestamp="')+30]
+        message_timestamp =  datetime.strftime(init_timestamp,'%Y-%m-%d %I:%M:%S %p')
         text = text[text.find('timestamp="'):]
         message_type = text[text.find('type="')+6:text.find('type="')+7]
         text = text[text.find('type="'):]
