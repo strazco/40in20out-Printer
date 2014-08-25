@@ -73,12 +73,12 @@ def get_messages():
     return messages
     
 
-# Called when button is briefly tapped.  Invokes time/temperature script.
+# Called when button is briefly tapped. 
 def tap():
-  printer.print("Button Tap")
+  #printer.print("Button Tap")
   printer.feed(1)
   GPIO.output(ledPin, GPIO.HIGH)  # LED on while working
-  #subprocess.call(["python", "40in20out_positions.py"])
+  subprocess.call(["python", "40in20out_positions.py"])
   GPIO.output(ledPin, GPIO.LOW)
 
 
