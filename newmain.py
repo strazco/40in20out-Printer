@@ -129,7 +129,7 @@ GPIO.output(ledPin, GPIO.HIGH)
 # time.sleep(30)
 
 # Print greeting image
-printer.feed(1)
+printer.feed(3)
 printer.printImage(Image.open('40in20out_logo.bmp'), True)
 printer.feed(1)
 printer.print("40in20out")
