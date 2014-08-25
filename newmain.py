@@ -315,5 +315,5 @@ while(True):
                 
             #now that the message has been printed, add it to printed_messages list
             printed_messages.append(i)
-    time.sleep(1)
+    #time.sleep(1)
     
