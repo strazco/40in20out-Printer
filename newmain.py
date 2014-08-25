@@ -78,7 +78,7 @@ def tap():
   printer.print("Button Tap")
   printer.feed(1)
   GPIO.output(ledPin, GPIO.HIGH)  # LED on while working
-  subprocess.call(["python", "40in20out_positions.py"])
+  #subprocess.call(["python", "40in20out_positions.py"])
   GPIO.output(ledPin, GPIO.LOW)
 
 
