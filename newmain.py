@@ -297,6 +297,24 @@ while(True):
                 printer.feed(1)
                 printer.feed(3)
                 
+            if i[2] == "R":
+                #printer.doubleWidthOn()
+                #printer.inverseOn()
+                printer.printImage(Image.open('40in20out_radar.bmp'), True)
+                printer.feed(1)
+                printer.inverseOn()
+                printer.print ('{:<32}'.format('   USE WEBSITE FOR DOCUMENT  '))
+                printer.print ('{:<32}'.format('     RETRIEVAL USING CODE    '))
+                printer.inverseOff()
+                printer.feed(1)
+                printer.boldOn()
+                printer.print(i[1])
+                printer.boldOff()
+                printer.feed(1)
+                printer.print(i[3])
+                printer.feed(1)
+                printer.feed(3)
+                
             if i[2] == "I":
                 #printer.doubleWidthOn()
                 #printer.inverseOn()
