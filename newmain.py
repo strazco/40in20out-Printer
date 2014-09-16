@@ -40,6 +40,7 @@ holdTime     = 2     # Duration for button hold (shutdown)
 tapTime      = 0.01  # Debounce time for button taps
 nextInterval = 0.0   # Time of next recurring operation
 dailyFlag    = False # Set after daily trigger occurs
+eodailyFlag  = False # Set after EOD trigger occurs
 lastId       = '1'   # State information passed to/from interval script
 printer      = Adafruit_Thermal("/dev/ttyAMA0", 19200, timeout=5)
 
@@ -201,15 +202,26 @@ while(True):
     else:
       GPIO.output(ledPin, GPIO.LOW)
 
-    # Once per day (currently set for 6:30am local time, or when script
-    # is first run, if after 6:30am), run forecast and sudoku scripts.
+    # Once per day (currently set for 7:00am local time, or when script
+    # is first run, if after 7:00am), run forecast and sudoku scripts.
     l = time.localtime()
-    if (60 * l.tm_hour + l.tm_min) > (60 * 6 + 30):
+    if (60 * l.tm_hour + l.tm_min) > (60 * 7 + 00):
       if dailyFlag == False:
         daily()
         dailyFlag = True
     else:
       dailyFlag = False  # Reset daily trigger
+
+    # Once per day (currently set for 3:00pm local time, or when script
+    # is first run, if after 7:00am), run forecast and sudoku scripts.
+    l = time.localtime()
+    if (60 * l.tm_hour + l.tm_min) > (60 * 15 + 00):
+      if eodailyFlag == False:
+        daily()
+        eodailyFlag = True
+    else:
+      eodailyFlag = False  # Reset daily trigger
+      
 
     # Every 30 seconds, run Twitter scripts.  'lastId' is passed around
     # to preserve state between invocations.  Probably simpler to do an
