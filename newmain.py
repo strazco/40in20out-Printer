@@ -41,6 +41,7 @@ tapTime      = 0.01  # Debounce time for button taps
 nextInterval = 0.0   # Time of next recurring operation
 dailyFlag    = False # Set after daily trigger occurs
 eodailyFlag  = False # Set after EOD trigger occurs
+refreshrate  = 60    # refresh rate for twitter - recall is throttled by the Twitter Search API to 1 search every 2 seconds
 lastId       = '1'   # State information passed to/from interval script
 printer      = Adafruit_Thermal("/dev/ttyAMA0", 19200, timeout=5)
 
@@ -227,7 +228,7 @@ while(True):
     # to preserve state between invocations.  Probably simpler to do an
     # import thing.
     if t > nextInterval:
-      nextInterval = t + 15.0
+      nextInterval = t + refreshrate
       result = interval()
       if result is not None:
         lastId = result.rstrip('\r\n')
