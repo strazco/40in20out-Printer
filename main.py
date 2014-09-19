@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
-# Main script for Adafruit Internet of Things Printer 2.  Monitors button
-# for taps and holds, performs periodic actions (Twitter polling by default)
-# and daily actions (Sudoku and weather by default).
-# Written by Adafruit Industries.  MIT license.
+# Main script for 40in20out TwitterTape printer.  Monitors button
+# for taps and holds, performs periodic actions 
+# and daily actions.
+# Adapted from Adafruit IOTP project.  MIT license.
 #
 # MUST BE RUN AS ROOT (due to GPIO access)
 #
@@ -46,7 +46,6 @@ lastId       = '1'   # State information passed to/from interval script
 printer      = Adafruit_Thermal("/dev/ttyAMA0", 19200, timeout=5)
 
 printed_messages = []
-
 
 #function to find new messages
 def get_messages():
@@ -112,7 +111,6 @@ def daily():
   #subprocess.call(["python", "forecast.py"])
   ## subprocess.call(["python", "sudoku-gfx.py"])
   GPIO.output(ledPin, GPIO.LOW)
-
 
 # Initialization
 
@@ -223,6 +221,10 @@ while(True):
     else:
       eodailyFlag = False  # Reset daily trigger
       
+    # Shutdown at 5pm by default (so you don't come back to empty paper)
+    l = time.localtime()
+    if (60 * l.tm_hour + l.tm_min) > (60 * 17 + 00):
+      hold()
 
     # Every 30 seconds, run Twitter scripts.  'lastId' is passed around
     # to preserve state between invocations.  Probably simpler to do an
