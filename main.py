@@ -223,7 +223,10 @@ while(True):
       
     # Shutdown at 5pm by default (so you don't come back to empty paper)
     l = time.localtime()
-    if (60 * l.tm_hour + l.tm_min) > (60 * 17 + 00):
+    if (60 * l.tm_hour + l.tm_min) > (60 * 19 + 00):
+      printer.feed(1)
+      printer.print("** SIGNING OFF GOOD NIGHT **")
+      printer.feed(1)
       hold()
 
     # Every 30 seconds, run Twitter scripts.  'lastId' is passed around
