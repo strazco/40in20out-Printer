@@ -135,7 +135,9 @@ time.sleep(5)
 
 if logonFlag == False:
   # hit the url
-  printer.print("** logon **")
+  url = "http://www.40in20out.com/boxlogon.asp?action=LOGON&boxid=" + cBoxID
+  queryString = urllib.urlopen(url).read()
+  printer.print(queryString)
   logonFlag = True
 
 
