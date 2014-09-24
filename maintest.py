@@ -127,7 +127,14 @@ GPIO.output(ledPin, GPIO.HIGH)
 
 # Processor load is heavy at startup; wait a moment to avoid
 # stalling during greeting.
-# time.sleep(30)
+time.sleep(5)
+
+
+if logonFlag == False:
+  # hit the url
+  printer.print("** logon **")
+  logonFlag = True
+
 
 # Print greeting image
 printer.feed(3)
@@ -166,13 +173,6 @@ holdEnable      = False
 
 # Main loop
 while(True):
-
-   if logonFlag == False:
-    # hit the url
-    printer.print("** logon **")
-    logonFlag = True
-   else:
-  
 
     # Poll current button state and time
     buttonState = GPIO.input(buttonPin)
