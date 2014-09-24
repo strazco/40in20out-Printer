@@ -89,6 +89,10 @@ def tap():
 
 # Called when button is held down.  Prints image, invokes shutdown process.
 def hold():
+  url = "http://www.40in20out.com/boxlogoff.asp?action=LOGOFF&boxid=" + cBoxID
+  queryString = urllib.urlopen(url).read()
+  printer.print(queryString)
+  printer.feed(1)
   GPIO.output(ledPin, GPIO.HIGH)
   printer.printImage(Image.open('goodbye40in20out.png'), True)
   printer.feed(3)
