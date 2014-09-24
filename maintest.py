@@ -138,6 +138,7 @@ if logonFlag == False:
   url = "http://www.40in20out.com/boxlogon.asp?action=LOGON&boxid=" + cBoxID
   queryString = urllib.urlopen(url).read()
   printer.print(queryString)
+  printer.feed(1)
   logonFlag = True
 
 
@@ -145,9 +146,9 @@ if logonFlag == False:
 try:
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	s.connect(('8.8.8.8', 0))
-	printer.print('My IP address is ' + s.getsockname()[0])
+	printer.print('IP address: ' + s.getsockname()[0])
         ip = s.getsockname()[0]
-	printer.feed(3)
+	printer.feed(1)
 except:
 	printer.boldOn()
 	printer.println('Network is unreachable.')
