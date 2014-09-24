@@ -224,7 +224,7 @@ while(True):
     # Once per day (currently set for 7:00am local time, or when script
     # is first run, if after 7:00am), run forecast and sudoku scripts.
     l = time.localtime()
-    if (60 * l.tm_hour + l.tm_min) > (60 * 7 + 00):
+    if (60 * l.tm_hour + l.tm_min) > (60 * 6 + 59):
       if dailyFlag == False:
         daily()
         dailyFlag = True
@@ -234,7 +234,7 @@ while(True):
     # Once per day (currently set for 3:00pm local time, or when script
     # is first run, if after 7:00am), run forecast and sudoku scripts.
     l = time.localtime()
-    if (60 * l.tm_hour + l.tm_min) > (60 * 15 + 00):
+    if (60 * l.tm_hour + l.tm_min) > (60 * 14 + 59):
       if eodailyFlag == False:
         daily()
         eodailyFlag = True
