@@ -34,6 +34,9 @@ from urllib import *
 #import urllib.request
 import time
 
+import boxid
+cBoxID = boxid.box()
+
 ledPin       = 18
 buttonPin    = 23
 holdTime     = 2     # Duration for button hold (shutdown)
