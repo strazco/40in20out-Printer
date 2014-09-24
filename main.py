@@ -34,11 +34,15 @@ from urllib import *
 #import urllib.request
 import time
 
+import boxid
+cBoxID = boxid.box()
+
 ledPin       = 18
 buttonPin    = 23
 holdTime     = 2     # Duration for button hold (shutdown)
 tapTime      = 0.01  # Debounce time for button taps
 nextInterval = 0.0   # Time of next recurring operation
+logonFlag    = False # Set after daily trigger occurs
 dailyFlag    = False # Set after daily trigger occurs
 eodailyFlag  = False # Set after EOD trigger occurs
 refreshrate  = 60    # refresh rate for twitter - recall is throttled by the Twitter Search API to 1 search every 2 seconds
@@ -85,6 +89,10 @@ def tap():
 
 # Called when button is held down.  Prints image, invokes shutdown process.
 def hold():
+  url = "http://www.40in20out.com/boxlogoff.asp?action=LOGOFF&boxid=" + cBoxID
+  queryString = urllib.urlopen(url).read()
+  printer.print(queryString)
+  printer.feed(1)
   GPIO.output(ledPin, GPIO.HIGH)
   printer.printImage(Image.open('goodbye40in20out.png'), True)
   printer.feed(3)
@@ -126,7 +134,34 @@ GPIO.output(ledPin, GPIO.HIGH)
 
 # Processor load is heavy at startup; wait a moment to avoid
 # stalling during greeting.
-# time.sleep(30)
+time.sleep(5)
+
+
+if logonFlag == False:
+  # hit the url
+  url = "http://www.40in20out.com/boxlogon.asp?action=LOGON&boxid=" + cBoxID
+  queryString = urllib.urlopen(url).read()
+  printer.print(queryString)
+  printer.feed(1)
+  logonFlag = True
+
+
+# Show IP address (if network is available)
+try:
+	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+	s.connect(('8.8.8.8', 0))
+	printer.print('IP address: ' + s.getsockname()[0])
+        ip = s.getsockname()[0]
+	printer.feed(1)
+except:
+	printer.boldOn()
+	printer.println('Network is unreachable.')
+	printer.boldOff()
+	printer.print('Connect display and keyboard\n'
+	  'for network troubleshooting.')
+        printer.print('Shutting down...')
+	printer.feed(3)
+	exit(0)
 
 # Print greeting image
 printer.feed(3)
@@ -140,21 +175,6 @@ printer.printImage(Image.open('totemasset_logo.bmp'), True)
 printer.feed(2)
 GPIO.output(ledPin, GPIO.LOW)
 
-# Show IP address (if network is available)
-try:
-	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-	s.connect(('8.8.8.8', 0))
-	printer.print('My IP address is ' + s.getsockname()[0])
-        ip = s.getsockname()[0]
-	printer.feed(3)
-except:
-	printer.boldOn()
-	printer.println('Network is unreachable.')
-	printer.boldOff()
-	printer.print('Connect display and keyboard\n'
-	  'for network troubleshooting.')
-	printer.feed(3)
-	exit(0)
 
 
 # Poll initial button state and time
