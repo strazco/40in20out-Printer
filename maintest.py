@@ -167,11 +167,11 @@ holdEnable      = False
 # Main loop
 while(True):
 
-  if logonFlag == False:
+ if logonFlag == False:
   # hit the url
   printer.print("** logon **")
   logonFlag = True
-  else:
+  
 
     # Poll current button state and time
     buttonState = GPIO.input(buttonPin)
