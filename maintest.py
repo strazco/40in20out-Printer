@@ -141,18 +141,6 @@ if logonFlag == False:
   logonFlag = True
 
 
-# Print greeting image
-printer.feed(3)
-printer.printImage(Image.open('40in20out_logo.bmp'), True)
-printer.feed(1)
-printer.print("40in20out")
-printer.feed(1)
-printer.print("Presented by...")
-printer.feed(1)
-printer.printImage(Image.open('totemasset_logo.bmp'), True)
-printer.feed(2)
-GPIO.output(ledPin, GPIO.LOW)
-
 # Show IP address (if network is available)
 try:
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -166,8 +154,22 @@ except:
 	printer.boldOff()
 	printer.print('Connect display and keyboard\n'
 	  'for network troubleshooting.')
+        printer.print('Shutting down...')
 	printer.feed(3)
 	exit(0)
+
+# Print greeting image
+printer.feed(3)
+printer.printImage(Image.open('40in20out_logo.bmp'), True)
+printer.feed(1)
+printer.print("40in20out")
+printer.feed(1)
+printer.print("Presented by...")
+printer.feed(1)
+printer.printImage(Image.open('totemasset_logo.bmp'), True)
+printer.feed(2)
+GPIO.output(ledPin, GPIO.LOW)
+
 
 
 # Poll initial button state and time
