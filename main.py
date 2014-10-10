@@ -84,7 +84,7 @@ def tap():
   printer.feed(1)
   url = "http://www.40in20out.com/quote.asp"
   queryString = urllib.urlopen(url).read()
-  printer.print(queryString)
+  printer.print(unidecode(HTMLParser.HTMLParser().unescape(queryString)))
   printer.feed(1)
   GPIO.output(ledPin, GPIO.HIGH)  # LED on while working
   subprocess.call(["python", "40in20out_positions.py"])
@@ -126,7 +126,7 @@ def daily():
   printer.feed(1)
   url = "http://www.40in20out.com/quote.asp"
   queryString = urllib.urlopen(url).read()
-  printer.print(queryString)
+  printer.print(unidecode(HTMLParser.HTMLParser().unescape(queryString)))
   printer.feed(3)
 
 
@@ -259,7 +259,7 @@ while(True):
       printer.feed(2)
       url = "http://www.40in20out.com/quote.asp"
       queryString = urllib.urlopen(url).read()
-      printer.print(queryString)
+      printer.print(unidecode(HTMLParser.HTMLParser().unescape(queryString)))
       printer.feed(3)
       hold()
 
