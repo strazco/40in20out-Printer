@@ -127,7 +127,7 @@ def daily():
   url = "http://www.40in20out.com/quote.asp"
   queryString = urllib.urlopen(url).read()
   printer.print(queryString)
-  printer.feed(1)
+  printer.feed(3)
 
 
 # Initialization
@@ -256,7 +256,11 @@ while(True):
     if (60 * l.tm_hour + l.tm_min) > (60 * 22 + 00):
       printer.feed(1)
       printer.print("** SIGNING OFF GOOD NIGHT **")
-      printer.feed(1)
+      printer.feed(2)
+      url = "http://www.40in20out.com/quote.asp"
+      queryString = urllib.urlopen(url).read()
+      printer.print(queryString)
+      printer.feed(3)
       hold()
 
     # Every 30 seconds, run Twitter scripts.  'lastId' is passed around
