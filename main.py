@@ -82,6 +82,10 @@ def get_messages():
 def tap():
   #printer.print("Button Tap")
   printer.feed(1)
+  url = "http://www.40in20out.com/quotes.asp"
+  queryString = urllib.urlopen(url).read()
+  printer.print(queryString)
+  printer.feed(1)
   GPIO.output(ledPin, GPIO.HIGH)  # LED on while working
   subprocess.call(["python", "40in20out_positions.py"])
   GPIO.output(ledPin, GPIO.LOW)
@@ -119,6 +123,12 @@ def daily():
   #subprocess.call(["python", "forecast.py"])
   ## subprocess.call(["python", "sudoku-gfx.py"])
   GPIO.output(ledPin, GPIO.LOW)
+  printer.feed(1)
+  url = "http://www.40in20out.com/quotes.asp"
+  queryString = urllib.urlopen(url).read()
+  printer.print(queryString)
+  printer.feed(1)
+
 
 # Initialization
 
