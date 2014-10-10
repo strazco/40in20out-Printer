@@ -82,7 +82,7 @@ def get_messages():
 def tap():
   #printer.print("Button Tap")
   printer.feed(1)
-  url = "http://www.40in20out.com/quotes.asp"
+  url = "http://www.40in20out.com/quote.asp"
   queryString = urllib.urlopen(url).read()
   printer.print(queryString)
   printer.feed(1)
@@ -124,7 +124,7 @@ def daily():
   ## subprocess.call(["python", "sudoku-gfx.py"])
   GPIO.output(ledPin, GPIO.LOW)
   printer.feed(1)
-  url = "http://www.40in20out.com/quotes.asp"
+  url = "http://www.40in20out.com/quote.asp"
   queryString = urllib.urlopen(url).read()
   printer.print(queryString)
   printer.feed(1)
